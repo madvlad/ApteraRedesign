@@ -1,0 +1,1 @@
+C:\Users\dbohan\Documents\ApteraRedesign\UWP\Assembly-CSharp\obj\ARM\Debug\ARM\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

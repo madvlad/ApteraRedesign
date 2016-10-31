@@ -1,0 +1,116 @@
+fileFormatVersion: 2
+guid: 189c5c65556591f49a90d466c316c2d4
+timeCreated: 1477879180
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 00000000010000000200000003000000040000000500000006000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 7e299e7d51854c81e2473e29e55d13a8
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 53.951046, y: 41.415504, z: -51.58438}
+      lookAt: {x: 48.590054, y: 37.31047, z: -46.36133}
+      up: {x: -0.3444362, y: 0.87678623, z: 0.3355737}
+      fov: 45
+      aspectRatio: 0
+      orthoSize: 88.84533
+      isPerspective: 0
+    scenes:
+    - camera:
+        position: {x: 53.951046, y: 41.415504, z: -51.58438}
+        lookAt: {x: 48.590054, y: 37.31047, z: -46.36133}
+        up: {x: -0.3444362, y: 0.87678623, z: 0.3355737}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 88.84533
+        isPerspective: 0
+      name: 3D
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: i-mac 1500 dual desk
+    100004: i-mac 22in_sat-2999-3D
+    100006: i-mac 22in_sat-2999-3D 1
+    400000: //RootNode
+    400002: i-mac 1500 dual desk
+    400004: i-mac 22in_sat-2999-3D
+    400006: i-mac 22in_sat-2999-3D 1
+    2300000: i-mac 1500 dual desk
+    2300002: i-mac 22in_sat-2999-3D
+    2300004: i-mac 22in_sat-2999-3D 1
+    3300000: i-mac 1500 dual desk
+    3300002: i-mac 22in_sat-2999-3D
+    3300004: i-mac 22in_sat-2999-3D 1
+    4300000: Mesh i-mac 1500 dual desk
+    4300002: Mesh i-mac 22in_sat-2999-3D
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

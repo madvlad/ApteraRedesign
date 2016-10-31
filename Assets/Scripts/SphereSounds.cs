@@ -1,0 +1,69 @@
+﻿using UnityEngine;
+
+public class SphereSounds : MonoBehaviour
+{
+    AudioSource audioSource = null;
+    public AudioClip impactClip = null;
+    public AudioClip rollingClip = null;
+
+    bool rolling = false;
+
+    void Start()
+    {
+        // Add an AudioSource component and set up some defaults
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialize = true;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.dopplerLevel = 0.0f;
+        audioSource.rolloffMode = AudioRolloffMode.Custom;
+    }
+
+    // Occurs when this object starts colliding with another object
+    void OnCollisionEnter(Collision collision)
+    {
+        // Play an impact sound if the sphere impacts strongly enough.
+        if (collision.relativeVelocity.magnitude >= 0.1f)
+        {
+            if (impactClip != null)
+            {
+                audioSource.clip = impactClip;
+                audioSource.Play();
+            }
+        }
+    }
+
+    // Occurs each frame that this object continues to collide with another object
+    void OnCollisionStay(Collision collision)
+    {
+        Rigidbody rigid = this.gameObject.GetComponent<Rigidbody>();
+
+        // Play a rolling sound if the sphere is rolling fast enough.
+        if (!rolling && rigid.velocity.magnitude >= 0.01f)
+        {
+            rolling = true;
+            if (rollingClip != null)
+            {
+                audioSource.clip = rollingClip;
+                audioSource.Play();
+            }
+        }
+        // Stop the rolling sound if rolling slows down.
+        else if (rolling && rigid.velocity.magnitude < 0.01f)
+        {
+            rolling = false;
+            audioSource.Stop();
+        }
+    }
+
+    // Occurs when this object stops colliding with another object
+    void OnCollisionExit(Collision collision)
+    {
+        // Stop the rolling sound if the object falls off and stops colliding.
+        if (rolling)
+        {
+            rolling = false;
+            audioSource.Stop();
+        }
+    }
+}
