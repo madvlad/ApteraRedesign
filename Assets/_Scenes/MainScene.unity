@@ -202,6 +202,7 @@ MonoBehaviour:
   rendererComponent: {fileID: 0}
   FurnitureToSpawn: {fileID: 1000011646053550, guid: 3af06ed4875ac4044b80c7d7c0ff9293,
     type: 2}
+  SelectSound: {fileID: 0}
   OnGazedFurniture:
     m_PersistentCalls:
       m_Calls: []
@@ -868,6 +869,7 @@ MonoBehaviour:
   rendererComponent: {fileID: 0}
   FurnitureToSpawn: {fileID: 1000011646053550, guid: 3af06ed4875ac4044b80c7d7c0ff9293,
     type: 2}
+  SelectSound: {fileID: 0}
   OnGazedFurniture:
     m_PersistentCalls:
       m_Calls: []
@@ -1183,6 +1185,7 @@ MonoBehaviour:
   rendererComponent: {fileID: 0}
   FurnitureToSpawn: {fileID: 1000011646053550, guid: 3af06ed4875ac4044b80c7d7c0ff9293,
     type: 2}
+  SelectSound: {fileID: 0}
   OnGazedFurniture:
     m_PersistentCalls:
       m_Calls: []
@@ -1523,6 +1526,11 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011082588860, guid: cd87c46c975f16a40a0ee238afb80d08,
+        type: 2}
+      propertyPath: SelectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ccb8ebf5178941d4282ebbe076a7fa9c, type: 3}
     m_RemovedComponents:
     - {fileID: 64000013276744652, guid: cd87c46c975f16a40a0ee238afb80d08, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cd87c46c975f16a40a0ee238afb80d08, type: 2}
