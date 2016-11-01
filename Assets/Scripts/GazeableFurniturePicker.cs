@@ -7,6 +7,7 @@ public class GazeableFurniturePicker : MonoBehaviour {
     public Renderer rendererComponent;
     public GameObject FurnitureToSpawn;
     public AudioClip SelectSound;
+    public AudioClip HoverSound;
 
     private string WorldAnchorId;
     private AudioSource source;
@@ -18,6 +19,7 @@ public class GazeableFurniturePicker : MonoBehaviour {
     public PickedFurnitureCallback OnPickedFurniture = new PickedFurnitureCallback();
 
     private bool gazing = false;
+    private GameObject justSpawnedFurniture;
 
     void Awake()
     {
@@ -27,27 +29,31 @@ public class GazeableFurniturePicker : MonoBehaviour {
     void OnGazeEnter()
     {
         gazing = true;
-        Debug.Log(gazing);
+        source.PlayOneShot(HoverSound);
     }
 
     void OnGazeLeave()
     {
         gazing = false;
-        Debug.Log(gazing);
     }
 
     void OnSelect()
     {
         if (FurnitureToSpawn != null)
         {
-            Debug.Log("Spawning...");
+            source.PlayOneShot(SelectSound);
             var newPos = Camera.main.transform.forward;
             newPos.y -= 0.8f;
             WorldAnchorId = System.Guid.NewGuid().ToString();
-            FurnitureToSpawn.GetComponent<TapToPlace>().SavedAnchorFriendlyName = "DeskAnchor-" + WorldAnchorId;
-            var newFurniture = Instantiate(FurnitureToSpawn, newPos, new Quaternion(0,0,0,0));
-            source.PlayOneShot(SelectSound);
+            justSpawnedFurniture = GameObject.Instantiate(FurnitureToSpawn, newPos, new Quaternion(0,0,0,0)) as GameObject;
+            justSpawnedFurniture.GetComponent<TapToPlace>().SavedAnchorFriendlyName = "DeskAnchor-" + WorldAnchorId;
+            Invoke("LateSelect", 1f);
         }
+    }
+
+    void LateSelect()
+    {
+        justSpawnedFurniture.SendMessage("OnSelect");
     }
 
     void Update()
