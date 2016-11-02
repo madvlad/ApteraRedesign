@@ -250,6 +250,7 @@
     <Compile Include="Assets\Scripts\FurnitureSpawner.cs" />
     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
     <Compile Include="Assets\Scripts\GazeableFurniturePicker.cs" />
+    <Compile Include="Assets\Scripts\HidePaneOnClick.cs" />
     <Compile Include="Assets\Scripts\MenuGestureManager.cs" />
     <Compile Include="Assets\Scripts\SpeechManager.cs" />
     <Compile Include="Assets\Scripts\SphereCommands.cs" />
