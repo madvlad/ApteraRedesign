@@ -146,3 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SavedAnchorFriendlyName: DefaultAnchor
+  pickupSound: {fileID: 8300000, guid: 0c30206883696834f8ba4be8f1c7d83c, type: 3}
+  putdownSound: {fileID: 8300000, guid: 6843c2411220386488da184f926e98e9, type: 3}

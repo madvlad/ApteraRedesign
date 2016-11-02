@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using Holotoolkit.Unity;
 using UnityEngine;
 
 namespace HoloToolkit.Unity
@@ -37,6 +38,11 @@ namespace HoloToolkit.Unity
         /// </summary>
         private bool placing;
 
+        private AudioSource source;
+
+        public AudioClip pickupSound;
+        public AudioClip putdownSound;
+
         private void Start()
         {
             // Make sure we have all the components in the scene we need.
@@ -61,29 +67,38 @@ namespace HoloToolkit.Unity
                 // If we don't have what we need to proceed, we may as well remove ourselves.
                 Destroy(this);
             }
+
+            source = gameObject.AddComponent<AudioSource>();
         }
 
         // Called by GazeGestureManager when the user performs a tap gesture.
         public void OnSelect()
         {
+            if (FurnitureManipulationManager.IsManipulating && !placing)
+                return;
+
             // On each tap gesture, toggle whether the user is in placing mode.
             placing = !placing;
 
             // If the user is in placing mode, display the spatial mapping mesh.
             if (placing)
             {
+                FurnitureManipulationManager.IsManipulating = true;
                 spatialMappingManager.DrawVisualMeshes = true;
 
                 Debug.Log(gameObject.name + " : Removing existing world anchor if any.");
 
                 anchorManager.RemoveAnchor(gameObject);
+                source.PlayOneShot(pickupSound);
             }
             // If the user is not in placing mode, hide the spatial mapping mesh.
             else
             {
+                FurnitureManipulationManager.IsManipulating = false;
                 spatialMappingManager.DrawVisualMeshes = false;
                 // Add world anchor when object placement is done.
                 anchorManager.AttachAnchor(gameObject, SavedAnchorFriendlyName);
+                source.PlayOneShot(putdownSound);
             }
         }
 

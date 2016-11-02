@@ -47,12 +47,14 @@ public class GazeableFurniturePicker : MonoBehaviour {
             WorldAnchorId = System.Guid.NewGuid().ToString();
             justSpawnedFurniture = GameObject.Instantiate(FurnitureToSpawn, newPos, new Quaternion(0,0,0,0)) as GameObject;
             justSpawnedFurniture.GetComponent<TapToPlace>().SavedAnchorFriendlyName = "DeskAnchor-" + WorldAnchorId;
+            justSpawnedFurniture.SetActive(false);
             Invoke("LateSelect", 1f);
         }
     }
 
     void LateSelect()
     {
+        justSpawnedFurniture.SetActive(true);
         justSpawnedFurniture.SendMessage("OnSelect");
     }
 
