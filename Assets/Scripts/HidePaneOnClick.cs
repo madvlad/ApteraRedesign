@@ -15,16 +15,14 @@ public class HidePaneOnClick : MonoBehaviour {
     {
         IsVisible = !IsVisible;
         PaneToHide.SetActive(IsVisible);
+
         if (IsVisible)
-        {
             gameObject.GetComponentInChildren<Text>().text = "Hide";
-        } else
-        {
+        else
             gameObject.GetComponentInChildren<Text>().text = "Show";
-        }
     }
 
-    public bool IsTargetObjectHiding()
+    public bool IsTargetObjectVisible()
     {
         return IsVisible;
     }
