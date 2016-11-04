@@ -42,8 +42,7 @@ public class GazeableFurniturePicker : MonoBehaviour {
         if (FurnitureToSpawn != null)
         {
             source.PlayOneShot(SelectSound);
-            var newPos = Camera.main.transform.forward;
-            newPos.y -= 0.8f;
+            var newPos = Camera.main.transform.forward * 6f;
             WorldAnchorId = System.Guid.NewGuid().ToString();
             justSpawnedFurniture = GameObject.Instantiate(FurnitureToSpawn, newPos, new Quaternion(0,0,0,0)) as GameObject;
             justSpawnedFurniture.GetComponent<TapToPlace>().SavedAnchorFriendlyName = "DeskAnchor-" + WorldAnchorId;
@@ -54,6 +53,21 @@ public class GazeableFurniturePicker : MonoBehaviour {
 
     void LateSelect()
     {
+        var spatialMappingManager = SpatialMappingManager.Instance;
+        var headPosition = Camera.main.transform.position;
+        var gazeDirection = Camera.main.transform.forward;
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo,
+            30.0f, spatialMappingManager.LayerMask))
+        {
+            justSpawnedFurniture.transform.position = hitInfo.point;
+            Quaternion toQuat = Camera.main.transform.localRotation;
+            toQuat.x = 0;
+            toQuat.z = 0;
+            justSpawnedFurniture.transform.rotation = toQuat;
+        }
+
         justSpawnedFurniture.SetActive(true);
         justSpawnedFurniture.SendMessage("OnSelect");
     }
